@@ -5,7 +5,9 @@
 import SwiftUI
 
 struct MainView: View {
+    
     @ObservedObject var viewController = MainViewControler()
+    @State public var tableSelectedFolderId : FolderInfo.ID? = nil
     
     var body: some View {
         
@@ -13,15 +15,16 @@ struct MainView: View {
             Text("Sourcepaths")
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Table(viewController.folders) {
+            Table(viewController.folders, selection: $tableSelectedFolderId ) {
                 TableColumn("Path") { folder in Text(String(folder.Folder)) }
                 TableColumn("Files") { folder in Text(String(folder.FilesCount)) }
             }
                         
             HStack {
-                Button("Add Source") { }
+                Button("Add Folder") {  viewController.addSourceFolder() }
                 Button("Count Files") { }
                 Spacer()
+                Button("Remove Folder") { viewController.removeSourceFolder(id: self.tableSelectedFolderId) }
             }
             
             VStack {
