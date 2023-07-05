@@ -12,12 +12,12 @@ struct MainView: View {
     var body: some View {
         
         VStack {
-            Text("Sourcepaths")
+            Text("Source Folders")
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             Table(viewController.folders, selection: $tableSelectedFolderId ) {
-                TableColumn("Path") { folder in Text(String(folder.Folder)) }
-                TableColumn("Files") { folder in Text(String(folder.FilesCount)) }
+                TableColumn("Folder") { folder in Text(String(folder.Folder)) }
+                TableColumn("Number of Files") { folder in Text(String(folder.FilesCount)) }
             }
                         
             HStack {
@@ -28,7 +28,7 @@ struct MainView: View {
             }
             
             VStack {
-                Text("Destinationpath")
+                Text("Destination Folder")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 HStack {
                     TextField("", text: $viewController.destinationPath)
@@ -38,14 +38,14 @@ struct MainView: View {
             }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             
             VStack {
-                Text("Numbers of files to copy")
+                Text("Numbers of Files to copy")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 TextField("", text: $viewController.numbersOfFilesToCopy)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             
             VStack {
-                Text("Contain Keywords (seperate with comma)")
+                Text("Contains Keywords (seperate with comma)")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 TextField("", text: $viewController.keywords)
                     .frame(maxWidth: .infinity, alignment: .leading)

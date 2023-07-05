@@ -36,7 +36,6 @@ public class MainViewControler : ObservableObject {
                 foldersInfo.FilesCount = fileHelper.getFilesCount(folderPath: folderUrl.path)
                 self.folders.append(foldersInfo)
                 //self.folderInfoRepository.Save()
-                //self.ReloadFoldersTableView()
             }
         }
     }
