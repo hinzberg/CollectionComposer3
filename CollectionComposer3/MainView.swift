@@ -6,20 +6,25 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var viewController = MainViewControler()
+    @ObservedObject var viewController  = MainViewControler()
     @State public var tableSelectedFolderId : FolderInfo.ID? = nil
+    
+    @FocusState private var isFocusedDestinationPath: Bool
+    @FocusState private var isFocusedNumbersOfFilesToCopy: Bool
+    @FocusState private var isFocusedKeywords: Bool
     
     var body: some View {
         
         VStack {
+            
             Text("Source Folders")
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Table(viewController.folders, selection: $tableSelectedFolderId ) {
+            Table(viewController.dataModel.folders, selection: $tableSelectedFolderId ) {
                 TableColumn("Folder") { folder in Text(String(folder.Folder)) }
                 TableColumn("Number of Files") { folder in Text(String(folder.FilesCount)) }
             }
-                        
+            
             HStack {
                 Button("Add Folder") {  viewController.addSourceFolder() }
                 Button("Count Files") { }
@@ -31,39 +36,65 @@ struct MainView: View {
                 Text("Destination Folder")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 HStack {
-                    TextField("", text: $viewController.destinationPath)
+                    TextField("", text: $viewController.dataModel.destinationPath)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Button("...") { }
+                        .focused($isFocusedDestinationPath)
+                        .onChange(of: isFocusedDestinationPath) { newValue in
+                            if !newValue {
+                                self.viewController.saveDataModel()
+                            }
+                        }
+                    
+                    
+                    Button("...") { viewController.addDestinationFolder() }
                 }
             }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             
             VStack {
                 Text("Numbers of Files to copy")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                TextField("", text: $viewController.numbersOfFilesToCopy)
+                
+                TextField("", text: $viewController.dataModel.numbersOfFilesToCopy)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .focused($isFocusedNumbersOfFilesToCopy)
+                    .onChange(of: isFocusedNumbersOfFilesToCopy) { newValue in
+                        if !newValue {
+                            self.viewController.saveDataModel()
+                        }
+                    }
             }
             
             VStack {
                 Text("Contains Keywords (seperate with comma)")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                TextField("", text: $viewController.keywords)
+                TextField("", text: $viewController.dataModel.keywords)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .focused($isFocusedKeywords)
+                    .onChange(of: isFocusedKeywords) { newValue in
+                        if !newValue {
+                            self.viewController.saveDataModel()
+                        }
+                    }
             }
             
-            Toggle("Delete Original Files", isOn: $viewController.doDelete)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Spacer()
-            
-            HStack {
+            VStack{
+                Toggle("Delete Original Files", isOn: $viewController.dataModel.doDelete)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                     .onChange(of: viewController.dataModel.doDelete) { newValue in
+                         self.viewController.saveDataModel()
+                    }
+                
                 Spacer()
-                Button("Copy Files") { }
-            }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
-            
-            Text(viewController.statusText)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                
+                HStack {
+                    Spacer()
+                    Button("Copy Files") { }
+                }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                
+                Text(viewController.statusText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+            }
         }
         .padding()
     }
