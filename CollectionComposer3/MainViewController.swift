@@ -12,12 +12,23 @@ public class MainViewControler : ObservableObject {
     @Published public var keywords = ""
     @Published public var statusText = "StatusText"
     
+ 
     @Published public var folders : [FolderInfo]  = [
-        FolderInfo(Folder: "pictures", FilesCount: 10, FilesInFolder: nil),
-        FolderInfo(Folder: "downloads", FilesCount: 11, FilesInFolder: nil),
-        FolderInfo(Folder: "documents", FilesCount: 12, FilesInFolder: nil)
+ //       FolderInfo(Folder: "pictures", FilesCount: 10, FilesInFolder: nil),
+ //       FolderInfo(Folder: "downloads", FilesCount: 11, FilesInFolder: nil),
+ //       FolderInfo(Folder: "documents", FilesCount: 12, FilesInFolder: nil)
     ]
     
+    private let fileHandler = FolderInfoFileHandler()
+    
+    init() {
+        let infos = fileHandler.Load()
+        if infos.count > 0 {
+            folders.removeAll()
+            folders.append(contentsOf: infos)
+        }
+    }
+        
     public func removeSourceFolder(id : UUID?) {
         guard let id = id else { return }
         if let item = folders.firstIndex(where: {$0.id == id}) {
@@ -35,7 +46,7 @@ public class MainViewControler : ObservableObject {
                 foldersInfo.Folder = folderUrl.path
                 foldersInfo.FilesCount = fileHelper.getFilesCount(folderPath: folderUrl.path)
                 self.folders.append(foldersInfo)
-                //self.folderInfoRepository.Save()
+                self.fileHandler.Save(folderInfos: self.folders)
             }
         }
     }
