@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F17C3312A5B3134001BF90E /* FileBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17C3302A5B3134001BF90E /* FileBookmarkHandler.swift */; };
 		3F2F87412A5ADD6700D2BFE5 /* MainViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F87402A5ADD6700D2BFE5 /* MainViewDataModel.swift */; };
 		3F2F87432A5AE2C500D2BFE5 /* MainViewDataModelFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F87422A5AE2C500D2BFE5 /* MainViewDataModelFileHandler.swift */; };
 		3F2F87452A5AEE0500D2BFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F87442A5AEE0500D2BFE5 /* AppDelegate.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F17C3302A5B3134001BF90E /* FileBookmarkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileBookmarkHandler.swift; sourceTree = "<group>"; };
+		3F17C3322A5B32E4001BF90E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3F2F87402A5ADD6700D2BFE5 /* MainViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataModel.swift; sourceTree = "<group>"; };
 		3F2F87422A5AE2C500D2BFE5 /* MainViewDataModelFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataModelFileHandler.swift; sourceTree = "<group>"; };
 		3F2F87442A5AEE0500D2BFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F17C32F2A5B3118001BF90E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3F17C3302A5B3134001BF90E /* FileBookmarkHandler.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		3F3130882A55EFCE00E19EAA = {
 			isa = PBXGroup;
 			children = (
@@ -67,11 +78,13 @@
 		3F3130932A55EFCE00E19EAA /* CollectionComposer3 */ = {
 			isa = PBXGroup;
 			children = (
+				3F17C3322A5B32E4001BF90E /* Info.plist */,
 				3F3130A82A55FD8800E19EAA /* HHFileHelper.swift */,
 				3F3130942A55EFCE00E19EAA /* CollectionComposer3App.swift */,
 				3F3130962A55EFCE00E19EAA /* MainView.swift */,
 				3F3130A52A55F97E00E19EAA /* MainViewController.swift */,
 				3F3130A72A55FAAF00E19EAA /* Data */,
+				3F17C32F2A5B3118001BF90E /* Helper */,
 				3F3130982A55EFD000E19EAA /* Assets.xcassets */,
 				3F31309D2A55EFD000E19EAA /* CollectionComposer3.entitlements */,
 				3F31309A2A55EFD000E19EAA /* Preview Content */,
@@ -175,6 +188,7 @@
 				3F2F87412A5ADD6700D2BFE5 /* MainViewDataModel.swift in Sources */,
 				3F3130952A55EFCE00E19EAA /* CollectionComposer3App.swift in Sources */,
 				3F3130A92A55FD8800E19EAA /* HHFileHelper.swift in Sources */,
+				3F17C3312A5B3134001BF90E /* FileBookmarkHandler.swift in Sources */,
 				3F2F87432A5AE2C500D2BFE5 /* MainViewDataModelFileHandler.swift in Sources */,
 				3F3130A62A55F97E00E19EAA /* MainViewController.swift in Sources */,
 			);
@@ -310,6 +324,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CollectionComposer3/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -337,6 +352,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CollectionComposer3/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

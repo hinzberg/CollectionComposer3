@@ -153,7 +153,6 @@ public class HHFileHelper: NSObject
         return urls
     }
     
-    
     func getFilesCount(folderPath : String) -> Int
     {
         var fileCount = 0
@@ -165,8 +164,4 @@ public class HHFileHelper: NSObject
         
         return fileCount
     }
-    
-    
-    
-    
 }

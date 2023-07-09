@@ -2,7 +2,8 @@
 //  CollectionComposer3
 //  Created by Holger Hinzberg on 09.07.23.
 
-import Foundation
+import SwiftUI
+import Combine
 
 public class MainViewDataModel : ObservableObject , Codable {
     @Published public var doDelete = true
@@ -10,7 +11,10 @@ public class MainViewDataModel : ObservableObject , Codable {
     @Published public var numbersOfFilesToCopy = ""
     @Published public var keywords = ""
     @Published public var folders : [FolderInfo]  = []
-    
+        
+    public init() {
+    }
+        
     private enum CodingKeys: String, CodingKey {
         case doDeleteKey
         case destinationPathKey
@@ -28,8 +32,7 @@ public class MainViewDataModel : ObservableObject , Codable {
         try container.encode(folders, forKey: .foldersKey)
     }
     
-    public init() {
-    }
+
         
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -27,9 +27,9 @@ struct MainView: View {
             
             HStack {
                 Button("Add Folder") {  viewController.addSourceFolder() }
-                Button("Count Files") { }
-                Spacer()
                 Button("Remove Folder") { viewController.removeSourceFolder(id: self.tableSelectedFolderId) }
+                Spacer()
+                Button("Count Files") { viewController.countFiles() }
             }
             
             VStack {
@@ -44,8 +44,6 @@ struct MainView: View {
                                 self.viewController.saveDataModel()
                             }
                         }
-                    
-                    
                     Button("...") { viewController.addDestinationFolder() }
                 }
             }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
@@ -80,8 +78,8 @@ struct MainView: View {
             VStack{
                 Toggle("Delete Original Files", isOn: $viewController.dataModel.doDelete)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                     .onChange(of: viewController.dataModel.doDelete) { newValue in
-                         self.viewController.saveDataModel()
+                    .onChange(of: viewController.dataModel.doDelete) { newValue in
+                        self.viewController.saveDataModel()
                     }
                 
                 Spacer()
