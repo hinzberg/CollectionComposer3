@@ -19,6 +19,8 @@
 		3F3130A62A55F97E00E19EAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3130A52A55F97E00E19EAA /* MainViewController.swift */; };
 		3F3130A92A55FD8800E19EAA /* HHFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3130A82A55FD8800E19EAA /* HHFileHelper.swift */; };
 		3F3130AB2A56042500E19EAA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F3130AA2A56042500E19EAA /* README.md */; };
+		3F448DE02A5C7956002B3C1B /* String + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F448DDF2A5C7956002B3C1B /* String + Helper.swift */; };
+		3F448DE22A5C8185002B3C1B /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F448DE12A5C8185002B3C1B /* Menus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		3F3130A52A55F97E00E19EAA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3F3130A82A55FD8800E19EAA /* HHFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHFileHelper.swift; sourceTree = "<group>"; };
 		3F3130AA2A56042500E19EAA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3F448DDF2A5C7956002B3C1B /* String + Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Helper.swift"; sourceTree = "<group>"; };
+		3F448DE12A5C8185002B3C1B /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 		3F17C32F2A5B3118001BF90E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3F448DDF2A5C7956002B3C1B /* String + Helper.swift */,
 				3F17C3302A5B3134001BF90E /* FileBookmarkHandler.swift */,
 			);
 			path = Helper;
@@ -89,6 +94,7 @@
 				3F31309D2A55EFD000E19EAA /* CollectionComposer3.entitlements */,
 				3F31309A2A55EFD000E19EAA /* Preview Content */,
 				3F2F87442A5AEE0500D2BFE5 /* AppDelegate.swift */,
+				3F448DE12A5C8185002B3C1B /* Menus.swift */,
 			);
 			path = CollectionComposer3;
 			sourceTree = "<group>";
@@ -182,10 +188,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F448DE22A5C8185002B3C1B /* Menus.swift in Sources */,
 				3F2F87452A5AEE0500D2BFE5 /* AppDelegate.swift in Sources */,
 				3F3130972A55EFCE00E19EAA /* MainView.swift in Sources */,
 				3F3130A42A55F46B00E19EAA /* FolderInfo.swift in Sources */,
 				3F2F87412A5ADD6700D2BFE5 /* MainViewDataModel.swift in Sources */,
+				3F448DE02A5C7956002B3C1B /* String + Helper.swift in Sources */,
 				3F3130952A55EFCE00E19EAA /* CollectionComposer3App.swift in Sources */,
 				3F3130A92A55FD8800E19EAA /* HHFileHelper.swift in Sources */,
 				3F17C3312A5B3134001BF90E /* FileBookmarkHandler.swift in Sources */,

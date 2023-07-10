@@ -94,6 +94,7 @@ public class HHFileHelper: NSObject
             do
             {
                 try fileManager.copyItem(atPath: sourcePath, toPath: destinationPath)
+                print("Did copy \(sourcePath)");
             }
             catch let error as NSError
             {

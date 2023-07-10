@@ -8,7 +8,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         print("start")
-        FileBookmarkHandler.shared.loadBookmarks()
+        FileBookmarkHandler.shared.loadBookmarksArchive()
     }
     
     func applicationWillTerminate(_ notification: Notification) {

@@ -10,7 +10,7 @@ public class MainViewDataModel : ObservableObject , Codable {
     @Published public var destinationPath = ""
     @Published public var numbersOfFilesToCopy = ""
     @Published public var keywords = ""
-    @Published public var folders : [FolderInfo]  = []
+    @Published public var folderInfos : [FolderInfo]  = []
         
     public init() {
     }
@@ -29,7 +29,7 @@ public class MainViewDataModel : ObservableObject , Codable {
         try container.encode(destinationPath, forKey: .destinationPathKey)
         try container.encode(numbersOfFilesToCopy, forKey: .numbersOfFilesToCopyKey)
         try container.encode(keywords, forKey: .keywordsKey)
-        try container.encode(folders, forKey: .foldersKey)
+        try container.encode(folderInfos, forKey: .foldersKey)
     }
     
 
@@ -40,6 +40,6 @@ public class MainViewDataModel : ObservableObject , Codable {
         destinationPath = try container.decode(String.self, forKey: .destinationPathKey)
         numbersOfFilesToCopy = try container.decode(String.self, forKey: .numbersOfFilesToCopyKey)
         keywords = try container.decode(String.self, forKey: .keywordsKey)
-        folders = try container.decode([FolderInfo].self, forKey: .foldersKey)
+        folderInfos = try container.decode([FolderInfo].self, forKey: .foldersKey)
     }
 }

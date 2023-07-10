@@ -20,7 +20,7 @@ struct MainView: View {
             Text("Source Folders")
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Table(viewController.dataModel.folders, selection: $tableSelectedFolderId ) {
+            Table(viewController.dataModel.folderInfos, selection: $tableSelectedFolderId ) {
                 TableColumn("Folder") { folder in Text(String(folder.Folder)) }
                 TableColumn("Number of Files") { folder in Text(String(folder.FilesCount)) }
             }
@@ -86,7 +86,7 @@ struct MainView: View {
                 
                 HStack {
                     Spacer()
-                    Button("Copy Files") { }
+                    Button("Copy Files") { viewController.copyFiles() }
                 }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 
                 Text(viewController.statusText)
